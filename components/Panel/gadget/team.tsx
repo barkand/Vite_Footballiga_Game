@@ -22,7 +22,7 @@ import {
 
 export default function Team({ name, setName, setLogo }: any) {
   const { publicCtx, setPublicCtx }: any = React.useContext(PublicContext);
-  const { t } = useTranslation(["public", "admin", "game"]);
+  const { t } = useTranslation(["admin", "game"]);
   const debounceFn = React.useCallback(_debounce(handleDebounceFn, 1000), []);
   const [image, setImage] = React.useState<string>("");
   const [editUsername, setEditUsername] = React.useState(EditTypeEnum.None);
@@ -74,7 +74,7 @@ export default function Team({ name, setName, setLogo }: any) {
         ...publicCtx,
         alert: {
           open: true,
-          message: t("ImageSizeError", { ns: "admin" }),
+          message: t("ImageSizeError"),
           severity: StatusTypeEnum.Error,
         },
       });
@@ -115,7 +115,7 @@ export default function Team({ name, setName, setLogo }: any) {
             {editUsername === EditTypeEnum.Edited ? (
               <CheckCircleIcon color="primary" />
             ) : editUsername === EditTypeEnum.Error ? (
-              <Tip title={t("team-name-already-exist")}>
+              <Tip title={t("team-name-already-exist", { ns: "game" })}>
                 <CancelIcon color="primary" />
               </Tip>
             ) : (
