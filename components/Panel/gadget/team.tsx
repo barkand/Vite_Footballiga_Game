@@ -2,11 +2,9 @@ import React from "react";
 import _debounce from "lodash/debounce";
 import { useTranslation } from "react-i18next";
 
-import { CheckTeamName as ApiCheckTeamName } from "../api";
-
 import { StatusTypeEnum, EditTypeEnum } from "../../../../core/constant";
 import { PublicContext } from "../../../../core/context";
-import { importPhoto } from "../../../../core/libs";
+import { importPhoto, PostAuthApi } from "../../../../core/libs";
 import {
   GridHeader,
   GridItem,
@@ -51,7 +49,10 @@ export default function Team({ name, setName, setLogo }: any) {
     if (_inputValue === "") return;
 
     setName(inputValue);
-    let _result: any = await ApiCheckTeamName(_inputValue);
+    let _result: any = await PostAuthApi(
+      { name: _inputValue },
+      "game/check-team"
+    );
 
     switch (_result.code) {
       case 200:

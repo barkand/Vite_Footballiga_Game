@@ -1,10 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { GetTeamCard as ApiGetTeamCard } from "../api";
-
 import { PublicContext } from "../../../../core/context";
 import { TransferList } from "../../../../core/components";
+import { PostAuthApi } from "../../../../core/libs";
 
 export default function Transfer({ setTeams }: any) {
   const { publicCtx } = React.useContext(PublicContext);
@@ -20,9 +19,12 @@ export default function Transfer({ setTeams }: any) {
         return;
       }
 
-      const _result: any = await ApiGetTeamCard({
-        lang: publicCtx.culture.name,
-      });
+      const _result: any = await PostAuthApi(
+        {
+          lang: publicCtx.culture.name,
+        },
+        "game/team-card"
+      );
       if (_result.code === 200) {
         setCardList(_result.items.cards);
         setTeamList(_result.items.teams);

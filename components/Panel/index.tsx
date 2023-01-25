@@ -2,7 +2,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import { Transfer, Players, Team } from "./gadget";
-import { SetTeam as ApiSetTeam, GetTeamName as ApiGetTeamName } from "./api";
 
 import { PublicContext } from "../../../core/context";
 import { StatusTypeEnum } from "../../../core/constant";
@@ -12,6 +11,7 @@ import {
   ButtonCircularLoading,
   Divider,
 } from "../../../core/components";
+import { PostAuthApi, UploadApi } from "../../../core/libs";
 
 export default function Panel() {
   const { publicCtx, setPublicCtx }: any = React.useContext(PublicContext);
@@ -42,7 +42,7 @@ export default function Panel() {
     }
 
     const getTeamName = async () => {
-      const _result: any = await ApiGetTeamName({});
+      const _result: any = await PostAuthApi({}, "game/get-team-name");
       if (_result.code === 200) {
         setName(_result.items.teamName);
       }
@@ -65,11 +65,25 @@ export default function Panel() {
       let teams_id = teams.map((team: any) => team.id).slice(0, 5);
 
       const setTeam = async () => {
-        const _result: any = await ApiSetTeam({
-          name: name,
-          logo: logo,
-          teams: teams_id,
-        });
+        let _result_upload: any = { code: 200 };
+        if (logo !== "ok") {
+          _result_upload = await UploadApi(
+            {
+              picture: logo,
+            },
+            "game/upload"
+          );
+        }
+        let _result: any;
+        if (_result_upload.code === 200) {
+          _result = await PostAuthApi(
+            {
+              name: name,
+              teams: teams_id,
+            },
+            "game/save-team"
+          );
+        }
 
         setLoading(false);
         if (_result.code === 200) {
