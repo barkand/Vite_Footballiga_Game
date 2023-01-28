@@ -29,7 +29,7 @@ export default function Team({ name, setName, setLogo }: any) {
     if (name !== "") {
       let _image = `${import.meta.env.VITE_UPLOAD_PATH}/${
         import.meta.env.VITE_UPLOAD_FOLDER
-      }/teams/${publicCtx.wallet.account}.webp`;
+      }/teams/${publicCtx.user.user_id}.webp`;
 
       setImage(_image);
       setLogo("ok");

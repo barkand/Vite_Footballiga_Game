@@ -43,9 +43,7 @@ export default function Panel() {
 
     const getTeamName = async () => {
       const _result: any = await PostAuthApi({}, "game/get-team-name");
-      if (_result.code === 200) {
-        setName(_result.items.teamName);
-      }
+      if (_result.code === 200) setName(_result.items?.teamName ?? "");
     };
 
     getTeamName();
