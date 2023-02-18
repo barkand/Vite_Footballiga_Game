@@ -75,7 +75,7 @@ export default function Team({ name, setName, setLogo }: any) {
         ...publicCtx,
         alert: {
           open: true,
-          message: t("ImageSizeError"),
+          message: t("image-size-error"),
           severity: StatusTypeEnum.Error,
         },
       });
