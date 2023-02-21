@@ -27,7 +27,7 @@ export default function Team({ name, setName, setLogo }: any) {
 
   React.useEffect(() => {
     if (name !== "") {
-      let _image = `${import.meta.env.VITE_UPLOAD_PATH}/${
+      let _image = `${import.meta.env.VITE_SERVER_PATH}/${
         import.meta.env.VITE_UPLOAD_FOLDER
       }/teams/${publicCtx.user.user_id}.webp`;
 
