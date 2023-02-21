@@ -89,20 +89,22 @@ export default function Team({ name, setName, setLogo }: any) {
     <>
       <GridHeader rowSpacing={5} direction="column" textAlign="center">
         <GridItem xs={12} style={{ mt: 1 }}>
-          <Avatar
-            src={image}
-            style={{ width: "20vh", height: "20vh", cursor: "pointer" }}
-            onClick={openFileDialog}
-          >
-            {image === "" && (
-              <Tip title={t("team-logo", { ns: "game" })}>
-                <TeamLogoIcon
-                  sx={{ width: "auto", height: "90%" }}
-                  color="primary"
-                />
-              </Tip>
-            )}
-          </Avatar>
+          {image === "" ? (
+            <Tip title={t("team-logo", { ns: "game" })}>
+              <TeamLogoIcon
+                sx={{ width: "20vh", height: "20vh", cursor: "pointer" }}
+                onClick={openFileDialog}
+                color="primary"
+              />
+            </Tip>
+          ) : (
+            <img
+              crossOrigin="anonymous"
+              src={image}
+              alt="team-logo"
+              style={{ width: "20vh", height: "20vh" }}
+            />
+          )}
         </GridItem>
         <GridItem xs={12}>
           <div style={{ direction: "ltr" }}>
