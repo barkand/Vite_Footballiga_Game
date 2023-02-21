@@ -88,10 +88,10 @@ export default function Team({ name, setName, setLogo }: any) {
   return (
     <>
       <GridHeader rowSpacing={5} direction="column" textAlign="center">
-        <GridItem xs={12} sx={{ mt: 1 }}>
+        <GridItem xs={12} style={{ mt: 1 }}>
           <Avatar
-            img={image}
-            sx={{ width: "20vh", height: "20vh", cursor: "pointer" }}
+            src={image}
+            style={{ width: "20vh", height: "20vh", cursor: "pointer" }}
             onClick={openFileDialog}
           >
             {image === "" && (
@@ -108,7 +108,7 @@ export default function Team({ name, setName, setLogo }: any) {
           <div style={{ direction: "ltr" }}>
             <Textbox
               autoComplete="off"
-              sx={{ width: "20ch" }}
+              style={{ width: "20ch" }}
               onChange={handleName}
               placeholder={t("team-name", { ns: "game" })}
               label={name}

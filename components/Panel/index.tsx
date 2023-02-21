@@ -100,7 +100,7 @@ export default function Panel() {
 
   return (
     <>
-      <GridHeader sx={{ mt: 1, mb: 5, p: 3 }} rowSpacing={5}>
+      <GridHeader style={{ mt: 1, mb: 5, p: 3 }} rowSpacing={5}>
         <GridItem xl={4} lg={12}>
           <Team name={name} setName={setName} setLogo={setLogo} />
         </GridItem>
@@ -113,7 +113,7 @@ export default function Panel() {
           <Players teams={teams} />
         </GridItem>
 
-        <Divider sx={{ mt: 6 }} />
+        <Divider style={{ mt: 6 }} />
         <GridItem xs={12}>
           <ButtonCircularLoading
             loading={loading}
