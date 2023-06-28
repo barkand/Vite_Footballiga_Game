@@ -3,15 +3,15 @@ import { useTranslation } from "react-i18next";
 
 import { Transfer, Players, Team } from "./gadget";
 
-import { PublicContext } from "../../../core/context";
-import { StatusTypeEnum } from "../../../core/constant";
+import { PublicContext } from "@/core/context";
+import { StatusTypeEnum } from "@/core/constant";
 import {
   GridHeader,
   GridItem,
   ButtonCircularLoading,
   Divider,
-} from "../../../core/components";
-import { PostAuthApi, UploadApi } from "../../../core/libs";
+} from "@/core/components";
+import { PostAuthApi, UploadApi } from "@/core/libs";
 
 export default function Panel() {
   const { publicCtx, setPublicCtx }: any = React.useContext(PublicContext);

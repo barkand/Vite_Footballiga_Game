@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import { PublicContext } from "../../../../core/context";
-import { TransferList } from "../../../../core/components";
-import { PostAuthApi } from "../../../../core/libs";
+import { PublicContext } from "@/core/context";
+import { TransferList } from "@/core/components";
+import { PostAuthApi } from "@/core/libs";
 
 export default function Transfer({ setTeams }: any) {
   const { publicCtx } = React.useContext(PublicContext);

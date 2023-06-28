@@ -2,21 +2,11 @@ import React from "react";
 import _debounce from "lodash/debounce";
 import { useTranslation } from "react-i18next";
 
-import { StatusTypeEnum, EditTypeEnum } from "../../../../core/constant";
-import { PublicContext } from "../../../../core/context";
-import { importPhoto, PostAuthApi } from "../../../../core/libs";
-import {
-  GridHeader,
-  GridItem,
-  Avatar,
-  Textbox,
-  Tip,
-} from "../../../../core/components";
-import {
-  CheckCircleIcon,
-  CancelIcon,
-  TeamLogoIcon,
-} from "../../../../core/icon";
+import { StatusTypeEnum, EditTypeEnum } from "@/core/constant";
+import { PublicContext } from "@/core/context";
+import { importPhoto, PostAuthApi } from "@/core/libs";
+import { GridHeader, GridItem, Avatar, Textbox, Tip } from "@/core/components";
+import { CheckCircleIcon, CancelIcon, TeamLogoIcon } from "@/core/icon";
 
 export default function Team({ name, setName, setLogo }: any) {
   const { publicCtx, setPublicCtx }: any = React.useContext(PublicContext);

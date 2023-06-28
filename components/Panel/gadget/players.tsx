@@ -1,9 +1,4 @@
-import {
-  GridHeader,
-  GridItem,
-  Media,
-  CSkeleton,
-} from "../../../../core/components";
+import { GridHeader, GridItem, Media, CSkeleton } from "@/core/components";
 
 export default function Players({ teams }: { teams: any }) {
   return (
